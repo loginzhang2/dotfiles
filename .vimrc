@@ -31,7 +31,6 @@
  Plugin 'ryanoasis/vim-devicons'                                    " 图标 icon
  Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'                   " 图标自定义颜色
  Plugin 'honza/vim-snippets'                                        " 代码片段
- Plugin 'christoomey/vim-tmux-navigator'                            " tmux
 
  Plugin 'posva/vim-vue'                                             " Vue
 
@@ -109,17 +108,6 @@
  let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['html'] = ''
  let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['css'] = ''
  let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['md'] = ''
-
- " Tmux
- let g:tmux_navigator_no_mappings = 1
- let g:tmux_navigator_disable_when_zoomed = 1                       " 缩放Vim窗格时禁用tmux导航器
-
- nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
- nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
- nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
- nnoremap <silent> <C-h> :TmuxNavigateLeft<CR>
- nnoremap <silent> <C-;> :TmuxNavigatePrevious<cr>
-
 " }}}
 
 
