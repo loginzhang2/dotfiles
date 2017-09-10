@@ -13,7 +13,6 @@ light='\033[0;37m'
 end='\033[0m'
 
 echo ""
-printf "${dark}----------------------------------------------${end}\n"
 echo " ---------------------------------------------- "
 echo "|              /)          /)       ,          |"
 echo "|             (/      __  (/                   |"
@@ -90,5 +89,7 @@ override_vim() {
 }
 
 install_dotfiles() {
-
+  info "软链配置文件"
+  ln -s ~/.dotfiles/.vimrc ~/.vimrc
+  ln -s ~/.dotfiles/.tmux.conf ~/.tmux.conf
 }
