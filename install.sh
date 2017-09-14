@@ -1,5 +1,10 @@
 #!/bin/bash
 
+cd "$(dirname "$0")/.."
+DOTFILES_ROOT=$(pwd)
+
+set -e
+
 # 颜色定义
 dark='\033[0;30m'
 dange='\033[0;31m'
@@ -24,22 +29,6 @@ echo "| E-mail: renchunhui2008@gmail.com             |"
 echo " ---------------------------------------------- "
 echo ""
 
-read -r -p "一键安装 iTerm2+zsh+tmux+vim 环境，确定安装? [Y/n] " input
-
-case $input in
-[yY][eE][sS]|[yY])
-  install_homebrew
-  install_ohmyzsh
-  install_tmux
-  install_iterm
-  override_vim
-  ;;
-[nN][oO]|[nN])
-  echo '取消安装'
-  exit 1
-  ;;
-esac
-
 # 提示信息
 info() {
   printf "${info}$1...${end}\n"
@@ -56,7 +45,7 @@ install_homebrew() {
 
 # 安装 oh_my_zsh
 install_ohmyzsh() {
-  if [ ! -d "~/.oh-my-zsh"]
+  if [ ! -d ~/.oh-my-zsh ]
   then
     info "安装 oh-my-zsh & zsh-syntax-highlighting"
     sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
@@ -73,18 +62,8 @@ install_tmux() {
   fi
 }
 
-# 安装 iTerm2
-install_iterm {
-  if !(which iterm)
-  then
-    info "安装 iTerm2"
-    brew install iTerm2
-  fi
-}
-
-# override vim
-override_vim() {
-  info "升级系统默认 Vim"
+# Brew 安装
+brew_install() {
   brew install vim --with-override-system-vi
 }
 
@@ -93,3 +72,12 @@ install_dotfiles() {
   ln -s ~/.dotfiles/.vimrc ~/.vimrc
   ln -s ~/.dotfiles/.tmux.conf ~/.tmux.conf
 }
+
+
+install_homebrew
+install_ohmyzsh
+install_tmux
+brew_install
+install_dotfiles
+
+info "安装完成!"

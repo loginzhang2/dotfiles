@@ -1,7 +1,7 @@
 "
-"     /)          /)       ,                  /) ,    
+"     /)          /)       ,                  /) ,
 "  _ (/      __  (/              _  _/_     _(/    ___
-" (__/ )_(_(_/ (_/ )_(_(__(_ o  /_)_(__(_(_(_(__(_(_) 
+" (__/ )_(_(_/ (_/ )_(_(__(_ o  /_)_(__(_(_(_(__(_(_)
 "
 " @description: Vim 前端开发配置
 " @author: Ren Chunhui
@@ -12,7 +12,7 @@
 
 
 " 安装 Vundle 管理工具  -------------------------------------------------------------{{{
- set number                                                         " 开启行号显示        
+ set number                                                         " 开启行号显示
  set nocompatible                                                   " 关闭兼容模式
  filetype off			                                            " required
 
@@ -32,18 +32,16 @@
  Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'                   " 图标自定义颜色
  Plugin 'honza/vim-snippets'                                        " 代码片段
 
- Plugin 'posva/vim-vue'                                             " Vue
-
  call vundle#end()
- filetype plugin indent on 
-" }}}    
+ filetype plugin indent on
+" }}}
 
 
 
 " 系统设置  -----------------------------------------------------------------------{{{
  syntax enable                                                      " 开启语法高亮功能
  syntax on                                                          " 允许用指定语法高亮配色方案替换默认方案
-   
+
  filetype indent on                                                 " 自适应不同语言的智能缩进
 
  set guifont=<FONT_NAME>:h<FONT_SIZE>
@@ -96,7 +94,7 @@
  " molokai
  let g:molokai_original = 1
  let g:rehash256 = 1
- 
+
  " devicons
  "let g:WebDevIconsUnicodeDecorateFolderNodes = 1
  let g:NERDTreeDirArrowExpandable = ''
@@ -104,7 +102,7 @@
  "let g:WebDevIconsUnicodeDecorateFolderNodesDefaultSymbol = ''
  "let g:DevIconsDefaultFolderOpenSymbol = ''
 
- let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols = {} 
+ let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols = {}
  let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['html'] = ''
  let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['css'] = ''
  let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['md'] = ''
@@ -137,5 +135,5 @@
 
 
 " 代码片段  -----------------------------------------------------------------------{{{
-    
+
 " }}}
