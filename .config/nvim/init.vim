@@ -9,25 +9,82 @@
 " Copyright (c) 2017 Ren Chunhui. All rights reserved.
 "
 
-" 插件管理  -----------------------------------------------------------------------{{{
-call plug#begin('~/.vim/plugged')
+if empty(glob('~/.config/nvim/autoload/plug.vim'))
+  silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  augroup plug_install
+    autocmd VimEnter * PlugInstall
+  augroup END
+endif
 
+" 插件管理  -----------------------------------------------------------------------{{{
+call plug#begin('~/.config/nvim/plugged')
+
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }     " 补全插件
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] } | Plug 'Xuyuanp/nerdtree-git-plugin' | Plug 'ryanoasis/vim-devicons'
 Plug 'Raimondi/delimitMate'                                       " 自动关闭括号
 Plug 'vim-airline/vim-airline'                                    " 状态栏
 Plug 'editorconfig/editorconfig-vim'                              " EditorConfig
-Plug ''tmux-plugins/vim-tmux'
+Plug 'tmux-plugins/vim-tmux'
+
+"Plug 'othree/html5.vim'
+"Plug 'cakebaker/scss-syntax.vim'
+"Plug 'lilydjwg/colorizer', { 'for': ['css', 'sass', 'scss', 'html', 'javascript', 'javascript.jsx'] }
+
+"Plug 'pangloss/vim-javascript'
+"Plug 'mxw/vim-jsx'
+"Plug 'sheerun/vim-json'
+"Plug 'heavenshell/vim-jsdoc', { 'on': ['JsDoc'] }
+"Plug 'ternjs/tern_for_vim', { 'for': ['javascript', 'javascript.jsx'] }
+"Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'] }
+
+Plug 'tomasr/molokai'
 call plug#end()
 " }}}
 
 " 系统设置  -----------------------------------------------------------------------{{{
 syntax enable                                                     " 开启语法高亮功能
 syntax on                                                         " 允许用指定语法高亮配色方案替换默认方案
+
+set encoding=utf-8                                                " 编码
+set shell=/bin/zsh                                                " 将shell设置为zsh
+set textwidth=80                                                  " 文本宽度
+
+colorscheme molokai                                               " 主题设置
 " }}}
+
+
+
+" Neovim 具体设置  ----------------------------------------------------------------{{{
+if has('nvim')
+  let g:loaded_python_provider=1                                  " 禁用 python2
+  let g:python_host_skip_check=1                                  " 跳过 python2 检查
+  let g:python3_host_prog='/usr/local/bin/python3'                " 设置 python3
+  set inccommand=nosplit                                          " 替代品和其他类似命令的实时预览
+endif
+" }}}
+
+
 
 " 快捷键设置  ----------------------------------------------------------------------{{{
- let mapleader=","                                                  " 定义快捷键前缀
+let mapleader=","                                                  " 定义快捷键前缀
 
- " NERDTree
- nmap <Leader>fl :NERDTreeToggle<CR>                                " 打开目录树
+" NERDTree
+nmap <Leader>fl :NERDTreeToggle<CR>                                " 打开目录树
 " }}}
+
+
+
+" 插件设置  -----------------------------------------------------------------------{{{
+" vim-airline
+" ------------------------------
+let g:airline#extensions#tabline#enabled = 1                        " 启用扩展
+" }}}
+
+" }}}
+
+
+" 自动补全  -----------------------------------------------------------------------{{{
+
+" }}}
+
