@@ -24,10 +24,11 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }     " 补全插件
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] } | Plug 'Xuyuanp/nerdtree-git-plugin' | Plug 'ryanoasis/vim-devicons'
 Plug 'Raimondi/delimitMate'                                       " 自动关闭括号
 Plug 'vim-airline/vim-airline'                                    " 状态栏
+Plug 'edkolev/tmuxline.vim'                                       " 美化 Tmux
 Plug 'editorconfig/editorconfig-vim'                              " EditorConfig
 Plug 'tmux-plugins/vim-tmux'
 
-"Plug 'othree/html5.vim'
+Plug 'othree/html5.vim'
 "Plug 'cakebaker/scss-syntax.vim'
 "Plug 'lilydjwg/colorizer', { 'for': ['css', 'sass', 'scss', 'html', 'javascript', 'javascript.jsx'] }
 
